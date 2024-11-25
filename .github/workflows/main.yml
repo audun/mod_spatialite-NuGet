@@ -14,7 +14,7 @@ jobs:
           msystem: MINGW32
           release: false
           update: true
-          install: base-devel mingw-w64-i686-toolchain
+          install: base-devel mingw-w64-i686-toolchain autotools
       - shell: msys2 {0}
         run: ./build.sh
       - uses: actions/upload-artifact@v4
@@ -30,7 +30,7 @@ jobs:
         with:
           release: false
           update: true
-          install: base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-geos
+          install: base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-geos autotools
       - shell: msys2 {0}
         run: ./build.sh
       - uses: actions/download-artifact@v4
