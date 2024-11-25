@@ -3,6 +3,9 @@ cd src
 curl https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz | tar -xz
 
 cd libspatialite-4.3.0a
+if [[ `uname -s` == MINGW32 ]]; then
+  pacman -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
+fi
 
 if [[ `uname -s` == MINGW* ]]; then
     sed -i configure.ac -e "s|mingw32|${MINGW_CHOST}|g"
