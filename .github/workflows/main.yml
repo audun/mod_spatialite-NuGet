@@ -16,7 +16,7 @@ jobs:
           install: base-devel mingw-w64-i686-toolchain mingw-w64-i686-geos
       - shell: msys2 {0}
         run: ./build.sh
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: win-x86
           path: artifacts
@@ -36,7 +36,7 @@ jobs:
           name: win-x86
           path: artifacts
       - run: ./pack.cmd
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: packages
           path: artifacts/packages
