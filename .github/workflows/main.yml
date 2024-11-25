@@ -13,6 +13,7 @@ jobs:
         with:
           msystem: MINGW32
           release: false
+          update: true
           install: base-devel mingw-w64-i686-toolchain mingw-w64-i686-geos
       - shell: msys2 {0}
         run: ./build.sh
@@ -28,10 +29,11 @@ jobs:
       - uses: msys2/setup-msys2@v2
         with:
           release: false
+          update: true
           install: base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-geos
       - shell: msys2 {0}
         run: ./build.sh
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: win-x86
           path: artifacts
