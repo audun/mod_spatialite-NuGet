@@ -1,13 +1,13 @@
 cd src
 
-curl https://www.gaia-gis.it/gaia-sins/libspatialite-5.0.1.tar.gz | tar -xz
+curl https://www.gaia-gis.it/gaia-sins/libspatialite-5.1.0.tar.gz | tar -xz
 
-cd libspatialite-5.0.1
+cd libspatialite-5.1.0
 
 if [[ `uname -s` == MINGW* ]]; then
     sed -i configure.ac -e "s|mingw32|${MINGW_CHOST}|g"
 
-    curl -O https://raw.githubusercontent.com/msys2/MINGW-packages/aded98949e7f9719a828a73940ff3dc344bf27dd/mingw-w64-libspatialite/01-fix-pkgconfig.patch
+    curl -O https://raw.githubusercontent.com/msys2/MINGW-packages/e61b0df9de8bf7a34d0caca9b1e773027d882479/mingw-w64-libspatialite/01-fix-pkgconfig.patch
     patch -p1 -i 01-fix-pkgconfig.patch
 
     autoreconf
