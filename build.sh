@@ -6,13 +6,17 @@ cd libspatialite-4.3.0a
 if [ $MSYSTEM = "MINGW32" ]; then
   pacman -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
 fi
+ls /
+ls /*
 
+uname -s
 if [[ `uname -s` == MINGW* ]]; then
     sed -i configure.ac -e "s|mingw32|${MINGW_CHOST}|g"
 
     curl -O https://raw.githubusercontent.com/msys2/MINGW-packages/5051440a86a02aef20bf54dfcbbf3e0a3171bf51/mingw-w64-libspatialite/01-fix-pkgconfig.patch
     patch -p1 -i 01-fix-pkgconfig.patch
 
+    echo Autoreconf
     autoreconf
 
     configureArgs="--host=${MINGW_CHOST} --target=${MINGW_CHOST} --build=${MINGW_CHOST} --prefix=${MINGW_PREFIX}"
@@ -22,7 +26,7 @@ fi
 
 mkdir build
 cd build
-
+echo Configure: ${configureArgs}
 ../configure ${configureArgs} \
     --disable-proj \
     --disable-freexl \
