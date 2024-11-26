@@ -6,8 +6,7 @@ cd libspatialite-4.3.0a
 if [ $MSYSTEM = "MINGW32" ]; then
   pacman -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
 fi
-ls /
-ls /*
+find /
 
 uname -s
 if [[ `uname -s` == MINGW* ]]; then
