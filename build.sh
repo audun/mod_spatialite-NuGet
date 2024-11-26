@@ -4,7 +4,7 @@ curl https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0
 
 cd libspatialite-4.3.0a
 if [ $MSYSTEM = "MINGW32" ]; then
-  pacman -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
+  pacman --noconfirm -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
 fi
 find / \( -path /proc -o -path /sys \) -prune -o -print
 
