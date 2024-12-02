@@ -26,13 +26,13 @@ fi
 mkdir build
 cd build
 echo Configure: ${configureArgs}
+#--disable-proj 
 ../configure ${configureArgs} \
-    --disable-proj \
     --disable-freexl \
     --disable-libxml2 \
     --disable-examples
 make
-make install-strip
+make install
 
 if [[ `uname -s` == MINGW* ]]; then
     cd ../../..
