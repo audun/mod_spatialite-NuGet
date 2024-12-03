@@ -1,11 +1,22 @@
-cd src
+unzip proj-4.9.2.zip
+cd proj-4.9.2/
 
+cp -r Include/* /usr/include
+if [ $MSYSTEM = "MINGW32" ]; then
+    cp -r Lib/x86/* /usr/lib
+    cp -r bin/x86/* /usr/bin
+fi
+if [ $MSYSTEM = "MINGW64" ]; then
+    cp -r Lib/x64/* /usr/lib
+    cp -r bin/x64/* /usr/bin
+fi
+
+cd ../src
 curl https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz | tar -xz
 
 cd libspatialite-4.3.0a
 if [ $MSYSTEM = "MINGW32" ]; then
   pacman --noconfirm -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-geos-3.12.1-1-any.pkg.tar.zst
-  pacman --noconfirm -U https://repo.msys2.org/mingw/mingw32/mingw-w64-i686-proj-9.3.0-1-any.pkg.tar.zst
 fi
 #find / \( -path /proc -o -path /sys \) -prune -o -print
 
