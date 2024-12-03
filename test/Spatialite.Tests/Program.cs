@@ -126,7 +126,7 @@ namespace Spatialite.Tests
                 var path = new HashSet<string>(Environment.GetEnvironmentVariable(pathVariableName).Split(Path.PathSeparator));
 
                 if (path.Add(assetDirectory))
-                    Environment.SetEnvironmentVariable(pathVariableName, string.Join(Path.PathSeparator, path));
+                    Environment.SetEnvironmentVariable(pathVariableName, string.Join(Path.PathSeparator.ToString(), path));
             }
         }
     }
