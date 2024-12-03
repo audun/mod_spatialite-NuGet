@@ -1,17 +1,17 @@
+mv proj-4.9.2.zip /tmp
+cd /tmp
 unzip proj-4.9.2.zip
-cd proj-4.9.2/
 
-cp -r Include/* /usr/include
 if [ $MSYSTEM = "MINGW32" ]; then
-    cp -r Lib/x86/* /usr/lib
-    cp -r bin/x86/* /usr/bin
+    CFLAGS="-I/tmp/proj-4.9.2/Include/proj4 -L/tmp/proj-4.9.2/Lib/x86"
+    mv /tmp/proj-4.9.2/Lib/x86/proj.lib /tmp/proj-4.9.2/Lib/x86/libproj.lib
 fi
 if [ $MSYSTEM = "MINGW64" ]; then
-    cp -r Lib/x64/* /usr/lib
-    cp -r bin/x64/* /usr/bin
+    CFLAGS="-I/tmp/proj-4.9.2/Include/proj4 -L/tmp/proj-4.9.2/Lib/x64"
+    mv /tmp/proj-4.9.2/Lib/x64/proj.lib /tmp/proj-4.9.2/Lib/x64/libproj.lib
 fi
 
-cd ../src
+cd ~/src
 curl https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz | tar -xz
 
 cd libspatialite-4.3.0a
@@ -30,7 +30,7 @@ if [[ `uname -s` == MINGW* ]]; then
     echo Autoreconf
     autoreconf
 
-    configureArgs="--host=${MINGW_CHOST} --target=${MINGW_CHOST} --build=${MINGW_CHOST} --prefix=${MINGW_PREFIX}"
+    configureArgs="--host=${MINGW_CHOST} --target=${MINGW_CHOST} --build=${MINGW_CHOST} --prefix=${MINGW_PREFIX} CFLAGS=\"${CFLAGS}\""
 elif [[ `uname -s` == Darwin* ]]; then
     sed -i "" "s/shrext_cmds='\`test \\.\$module = .yes && echo .so \\|\\| echo \\.dylib\`'/shrext_cmds='.dylib'/g" configure
 fi
