@@ -1,17 +1,15 @@
-mv proj-4.9.2.zip /tmp
-cd /tmp
 unzip proj-4.9.2.zip
-
+BASEDIR=`pwd`
 if [ $MSYSTEM = "MINGW32" ]; then
-    export CFLAGS="-I/tmp/proj-4.9.2/Include/proj4 -L/tmp/proj-4.9.2/Lib/x86"
-    mv /tmp/proj-4.9.2/Lib/x86/proj.lib /tmp/proj-4.9.2/Lib/x86/libproj.lib
+    export CFLAGS="-I${CURDIR}/proj-4.9.2/Include/proj4 -L${CURDIR}/proj-4.9.2/Lib/x86"
+    mv ${CURDIR}/proj-4.9.2/Lib/x86/proj.lib ${CURDIR}/proj-4.9.2/Lib/x86/libproj.lib
 fi
 if [ $MSYSTEM = "MINGW64" ]; then
-    export CFLAGS="-I/tmp/proj-4.9.2/Include/proj4 -L/tmp/proj-4.9.2/Lib/x64"
-    mv /tmp/proj-4.9.2/Lib/x64/proj.lib /tmp/proj-4.9.2/Lib/x64/libproj.lib
+    export CFLAGS="-I${CURDIR}/proj-4.9.2/Include/proj4 -L${CURDIR}/proj-4.9.2/Lib/x64"
+    mv ${CURDIR}/proj-4.9.2/Lib/x64/proj.lib ${CURDIR}/proj-4.9.2/Lib/x64/libproj.lib
 fi
 
-cd ~/src
+cd src
 curl https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz | tar -xz
 
 cd libspatialite-4.3.0a
