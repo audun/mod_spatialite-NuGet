@@ -50,7 +50,8 @@ make install
 uname -s
 #if [[ `uname -s` == MINGW* ]]; then
 cd ../../..
-echo $CWD
+pwd
+cd ~
 echo mkdir artifacts
 mkdir artifacts
 cd artifacts
@@ -74,6 +75,8 @@ if [ $MSYSTEM = "MINGW32" ]; then
 else
     cp /mingw64/bin/libgcc_s_seh-1.dll .
 fi
+
+pwd
 
 cp -v ${MINGW_PREFIX}/bin/libgeos.dll .
 cp -v ${MINGW_PREFIX}/bin/libgeos_c.dll .
