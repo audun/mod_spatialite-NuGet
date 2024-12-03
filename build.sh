@@ -47,7 +47,8 @@ echo Configure: ${configureArgs}
 make
 make install
 
-if [[ `uname -s` == MINGW* ]]; then
+uname -s
+#if [[ `uname -s` == MINGW* ]]; then
     cd ../../..
 
     mkdir artifacts
@@ -80,4 +81,4 @@ if [[ `uname -s` == MINGW* ]]; then
     cp ${MINGW_PREFIX}/bin/libwinpthread-1.dll .
     cp ${MINGW_PREFIX}/lib/mod_spatialite.dll .
     cp ${MINGW_PREFIX}/bin/zlib1.dll .
-fi
+#fi
