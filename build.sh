@@ -1,12 +1,12 @@
 unzip proj-4.9.2.zip
 BASEDIR=`pwd`
 if [ $MSYSTEM = "MINGW32" ]; then
-    export CFLAGS="-I${CURDIR}/proj-4.9.2/Include/proj4 -L${CURDIR}/proj-4.9.2/Lib/x86"
-    mv ${CURDIR}/proj-4.9.2/Lib/x86/proj.lib ${CURDIR}/proj-4.9.2/Lib/x86/libproj.lib
+    export CFLAGS="-I${BASEDIR}/proj-4.9.2/Include/proj4 -L${BASEDIR}/proj-4.9.2/Lib/x86"
+    mv ${BASEDIR}/proj-4.9.2/Lib/x86/proj.lib ${BASEDIR}/proj-4.9.2/Lib/x86/libproj.lib
 fi
 if [ $MSYSTEM = "MINGW64" ]; then
-    export CFLAGS="-I${CURDIR}/proj-4.9.2/Include/proj4 -L${CURDIR}/proj-4.9.2/Lib/x64"
-    mv ${CURDIR}/proj-4.9.2/Lib/x64/proj.lib ${CURDIR}/proj-4.9.2/Lib/x64/libproj.lib
+    export CFLAGS="-I${BASEDIR}/proj-4.9.2/Include/proj4 -L${BASEDIR}/proj-4.9.2/Lib/x64"
+    mv ${BASEDIR}/proj-4.9.2/Lib/x64/proj.lib ${BASEDIR}/proj-4.9.2/Lib/x64/libproj.lib
 fi
 
 cd src
