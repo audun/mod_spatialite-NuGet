@@ -49,7 +49,7 @@ uname -s
 #if [[ `uname -s` == MINGW* ]]; then
 cd ../../..
 pwd
-cd ~
+
 echo mkdir artifacts
 mkdir artifacts
 cd artifacts
