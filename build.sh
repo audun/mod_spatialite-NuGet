@@ -42,7 +42,8 @@ echo Configure: ${configureArgs}
 ../configure ${configureArgs} \
     --disable-freexl \
     --disable-libxml2 \
-    --disable-examples
+    --disable-examples \
+    CFLAGS="${CFLAGS}"
 make
 make install
 
