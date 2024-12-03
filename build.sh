@@ -36,6 +36,7 @@ make install-strip
 
 if [[ `uname -s` == MINGW* ]]; then
     cd ../../..
+    pwd
 
     mkdir artifacts
     cd artifacts
@@ -55,16 +56,17 @@ if [[ `uname -s` == MINGW* ]]; then
     cd native
 
     if [ $MSYSTEM = "MINGW32" ]; then
-        cp /mingw32/bin/libgcc_s_dw2-1.dll .
+        cp -v /mingw32/bin/libgcc_s_dw2-1.dll .
     else
-        cp /mingw64/bin/libgcc_s_seh-1.dll .
+        cp -v /mingw64/bin/libgcc_s_seh-1.dll .
     fi
 
-    cp ${MINGW_PREFIX}/bin/libgeos.dll .
-    cp ${MINGW_PREFIX}/bin/libgeos_c.dll .
-    cp ${MINGW_PREFIX}/bin/libiconv-2.dll .
-    cp ${MINGW_PREFIX}/bin/libstdc++-6.dll .
-    cp ${MINGW_PREFIX}/bin/libwinpthread-1.dll .
-    cp ${MINGW_PREFIX}/lib/mod_spatialite.dll .
-    cp ${MINGW_PREFIX}/bin/zlib1.dll .
+    pwd
+    cp -v ${MINGW_PREFIX}/bin/libgeos.dll .
+    cp -v ${MINGW_PREFIX}/bin/libgeos_c.dll .
+    cp -v ${MINGW_PREFIX}/bin/libiconv-2.dll .
+    cp -v ${MINGW_PREFIX}/bin/libstdc++-6.dll .
+    cp -v ${MINGW_PREFIX}/bin/libwinpthread-1.dll .
+    cp -v ${MINGW_PREFIX}/lib/mod_spatialite.dll .
+    cp -v ${MINGW_PREFIX}/bin/zlib1.dll .
 fi
